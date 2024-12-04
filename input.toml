@@ -1,0 +1,8 @@
+[example]
+nums = [1, 2, 3, 4, 5]
+numbers = [[1, 2], [3, 4], [5, 6]]
+names = ["Alice", "Bob", "Charlie", "Dave"]
+families = [["Wilson" , "Smith"], ["Eshker", "Ken"], ["Gadju", "Polutin"]]
+[example.details]
+age = 30
+address = { city = "CityName", street = "StreetName" }
