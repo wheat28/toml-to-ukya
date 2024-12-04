@@ -9,9 +9,9 @@
 
 входного формата в выходной. Синтаксические ошибки выявляются с выдачей сообщений.
 
-Входной текст на языке toml принимается из файла. Выходной
+Входной текст на языке toml принимается из стандартного ввода.
 
-текст на учебном конфигурационном языке попадает в файл выхода.
+Выходной текст на учебном конфигурационном языке попадает в стандартный вывод.
 
 ![image](https://github.com/user-attachments/assets/926afeae-35c4-4c5a-85c2-9023e2620424)
 
@@ -64,18 +64,14 @@
 
 в стандартный поток ошибок (sys.stderr), после чего программа завершает выполнение.
 
-**`Запуск программы`**
-
-![image](https://github.com/user-attachments/assets/167a610b-c7bb-4f8e-81b3-99c0100016cd)
-
 ## Тестироавние
-**`Входной файл`**
+**`Входые данные`**
 
-![image](https://github.com/user-attachments/assets/a33f3f8c-e855-4d4c-830c-950896e0d4a7)
+![image](https://github.com/user-attachments/assets/95839d3a-692a-4fab-905f-b53344ebcf71)
 
-**`Выходной файл`**
+**`Выходные данные`**
 
-![image](https://github.com/user-attachments/assets/ec5b4b5e-d2c9-4600-83cc-58763fbc1df2)
+![image](https://github.com/user-attachments/assets/58f56615-ca0b-45d2-ad88-47b34c21f4b5)
 
 **`Тесты`**
 
