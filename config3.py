@@ -1,4 +1,3 @@
-import argparse
 import toml
 import sys
 
@@ -9,21 +8,16 @@ def parse_toml(input_text):
         raise SyntaxError(f"Ошибка синтаксиса TOML: {e}")
 
 def convert_to_ukya(value, indent_level=0):
-    # Рекурсивная обработка всех типов данных с учетом отступов
-    indent = "  " * indent_level  # Отступы для текущего уровня
+    indent = "  " * indent_level
     if isinstance(value, dict):
-        # Словари
         items = [f"{indent} {k} -> {convert_to_ukya(v, indent_level + 1)}." for k, v in value.items()]
         return "{\n" + "\n".join(items) + f"\n{indent}}}"
     elif isinstance(value, list):
-        # Массивы
         items = " ".join([convert_to_ukya(item, indent_level + 1) for item in value])
         return f"[ {items} ]"
     elif isinstance(value, (int, float)):
-        # Числа
         return str(value)
     elif isinstance(value, str):
-        # Строки
         return f'"{value}"'
     else:
         raise ValueError(f"Unsupported value type: {type(value)}")
@@ -35,31 +29,28 @@ def convert_toml_to_ukya(toml_data):
     return "\n".join(ukya_output)
 
 def main():
-    parser = argparse.ArgumentParser(description="TOML to UKYA converter.")
-    parser.add_argument("input_file", type=str, help=r"C:\Users\Vovawork\PycharmProjects\config3\input.toml")
-    parser.add_argument("output_file", type=str, help=r"C:\Users\Vovawork\PycharmProjects\config3\output.txt")
-    args = parser.parse_args()
-
+    print("Введите содержимое TOML. Для завершения введите пустую строку и нажмите Enter:")
+    input_lines = []
     try:
-        # Чтение из входного файла
-        with open(args.input_file, "r", encoding="utf-8") as infile:
-            input_text = infile.read()
+        while True:
+            line = input()
+            if not line.strip():  # Если строка пустая, завершить ввод
+                break
+            input_lines.append(line)
+
+        input_text = "\n".join(input_lines)
 
         # Парсинг и преобразование
         toml_data = parse_toml(input_text)
         ukya_output = convert_toml_to_ukya(toml_data)
 
-        # Запись в выходной файл
-        with open(args.output_file, "w", encoding="utf-8") as outfile:
-            outfile.write(ukya_output)
-
-        print(f"Конвертация завершена. Результат сохранен в '{args.output_file}'.")
-    except FileNotFoundError as e:
-        print(f"Ошибка: Файл не найден: {e}", file=sys.stderr)
-        sys.exit(1)
+        # Вывод результата
+        print("\nРезультат в формате УКЯ:")
+        print(ukya_output)
+    except SyntaxError as e:
+        print(f"Ошибка синтаксиса: {e}", file=sys.stderr)
     except Exception as e:
         print(f"Ошибка: {e}", file=sys.stderr)
-        sys.exit(1)
 
 if __name__ == "__main__":
     main()
