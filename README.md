@@ -67,11 +67,11 @@
 ## Тестироавние
 **`Входые данные`**
 
-![image](https://github.com/user-attachments/assets/95839d3a-692a-4fab-905f-b53344ebcf71)
+![image](https://github.com/user-attachments/assets/c90a6332-77ab-4739-8bda-af1ac1ca9511)
 
 **`Выходные данные`**
 
-![image](https://github.com/user-attachments/assets/58f56615-ca0b-45d2-ad88-47b34c21f4b5)
+![image](https://github.com/user-attachments/assets/85977f6a-251b-403d-95b3-94ac462fad2b)
 
 **`Тесты`**
 
